@@ -170,41 +170,133 @@ function updateActiveNavigation(page) {
 // 홈 페이지 렌더링
 function renderHomePage() {
     return `
-        <div class="content-card">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h1 style="font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem;" class="gradient-text">SBSKHP 교육 서비스 플랫폼</h1>
-                <p style="font-size: 1.25rem; color: #6b7280;">전문적인 교육 서비스를 통해 여러분의 성장을 지원합니다</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                <div style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); padding: 1.5rem; border-radius: 8px; text-align: center;" class="hover-lift">
+        <div class="content-card" style="background-image: url('./assets/image/home-bg.jpg'); background-size: cover; background-position: center;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='schedule'; loadPage('schedule');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">실시간 교육 일정</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">최신 교육 일정을 확인하세요</p>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육일정</h3>
+                    <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">최신 교육 일정을 확인하세요</p>
                 </div>
                 
-                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 1.5rem; border-radius: 8px; text-align: center;" class="hover-lift">
+                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='education'; loadPage('education');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">다양한 교육 과정</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">전문 강사진이 제공하는 체계적인 교육 프로그램</p>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육정보</h3>
+                    <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">전문 강사진이 제공하는 체계적인 교육 프로그램</p>
                 </div>
                 
-                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; text-align: center; grid-column: 1 / -1;" class="hover-lift">
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='apply'; loadPage('apply');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">간편한 신청 시스템</h3>
-                    <p style="color: #6b7280; font-size: 0.875rem;">온라인으로 간편하게 교육 신청 및 확인 가능</p>
+                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육신청</h3>
+                    <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">온라인으로 간편하게 교육 신청 및 확인 가능</p>
+                </div>
+            </div>
+            <!-- 히어로 섹션 -->
+            <div class="hero-section" style="position: relative; border-radius: 24px; padding: 4rem 3rem; margin-bottom: 4rem; color: white; overflow: hidden;">
+                <!-- 배경 장식 요소들 -->
+                <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0.6;"></div>
+                <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.08); border-radius: 50%;"></div>
+                <div style="position: absolute; top: 20%; right: 20%; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+                
+                <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                        미래 콘텐츠 산업을 이끌<br>
+                        <span style="background: linear-gradient(45deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">인재와 기술이 만나는 곳</span>
+                    </h1>
+                    
+                    <div style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.95; font-weight: 300; text-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <p style="margin-bottom: 1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.13)">SBS A&T의 Hightech Platform은 콘텐츠 산업의 미래를 이끌 창의적 인재 양성과<br>
+                        첨단 미디어 기술의 융합을 목표로 탄생한 실무 중심의 교육·실습 플랫폼입니다</p>
+                        
+                        <p style="margin: 0;">차세대 미디어 기술을 현업 전문가와 함께 직접 체험하고<br>
+                        제작하는 현장 맞춤형 커리큘럼을 제공합니다</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="window.location.hash='education'; loadPage('education');" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; font-weight: 600; padding: 1rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
+                            교육 프로그램 탐색
+                        </button>
+                        <button onclick="window.location.hash='apply'; loadPage('apply');" style="background: linear-gradient(45deg, #fbbf24, #f59e0b); border: none; color: white; font-weight: 600; padding: 1rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-size: 1rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(251, 191, 36, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(251, 191, 36, 0.4)'">
+                            지금 시작하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 교육생 후기 섹션 -->
+            <div style="margin-bottom: 3rem;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 1.875rem; font-weight: bold; color: #1f2937; margin-bottom: 0.5rem;">교육생 후기</h2>
+                    <p style="color: #6b7280; font-size: 1rem;">AI 교육을 통해 성장한 수강생들의 생생한 후기를 만나보세요</p>
+                </div>
+                
+                <div class="testimonials-container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border: 1px solid #e2e8f0; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="color: white; font-weight: bold; font-size: 1rem;">김</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <span style="font-weight: 600; color: #1f2937; font-size: 0.9rem;">김민지</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">·</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">AI 기초 및 머신러닝 입문</span>
+                            </div>
+                            <p style="color: #374151; margin: 0; font-size: 0.85rem; line-height: 1.4;">"처음 AI를 접했는데 강사님이 너무 친절하게 알려주셔서 쉽게 이해할 수 있었어요. 실습 위주로 진행되어 실무에 바로 적용할 수 있을 것 같습니다!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%); border: 1px solid #dbeafe; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="color: white; font-weight: bold; font-size: 1rem;">박</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <span style="font-weight: 600; color: #1f2937; font-size: 0.9rem;">박준혁</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">·</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">딥러닝 & 신경망 심화 과정</span>
+                            </div>
+                            <p style="color: #374151; margin: 0; font-size: 0.85rem; line-height: 1.4;">"복잡할 것 같았던 딥러닝이 체계적인 커리큘럼 덕분에 단계적으로 이해할 수 있었습니다. 프로젝트 실습이 특히 도움이 되었어요."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #d1fae5; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="color: white; font-weight: bold; font-size: 1rem;">이</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <span style="font-weight: 600; color: #1f2937; font-size: 0.9rem;">이소영</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">·</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">ChatGPT & LLM 활용 과정</span>
+                            </div>
+                            <p style="color: #374151; margin: 0; font-size: 0.85rem; line-height: 1.4;">"최신 트렌드인 ChatGPT를 실무에 어떻게 활용할지 고민이었는데, 구체적인 활용 방법을 배울 수 있어서 정말 유익했습니다!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); border: 1px solid #fef3c7; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <span style="color: white; font-weight: bold; font-size: 1rem;">최</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <span style="font-weight: 600; color: #1f2937; font-size: 0.9rem;">최동현</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">·</span>
+                                <span style="color: #6b7280; font-size: 0.8rem;">컴퓨터 비전 AI 개발</span>
+                            </div>
+                            <p style="color: #374151; margin: 0; font-size: 0.85rem; line-height: 1.4;">"이론만 배우는 것이 아니라 실제 프로젝트를 통해 포트폴리오까지 만들 수 있어서 취업에 큰 도움이 되었습니다. 추천합니다!"</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -221,6 +313,98 @@ function renderHomePage() {
                 </div>
             </div>
         </div>
+        
+        <style>
+        .hero-section {
+            position: relative !important;
+                border-radius: 24px !important;
+            overflow: hidden !important;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="0.5" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.8" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .testimonial-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.2s ease;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-section {
+                padding: 3rem 2rem !important;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-section div:last-child {
+                font-size: 1.1rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2.5rem 1.5rem !important;
+                margin-bottom: 2.5rem !important;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .hero-section div:nth-child(2) > div:nth-child(2) {
+                font-size: 1rem !important;
+            }
+            
+            .hero-section div:nth-child(2) > div:nth-child(2) p {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .hero-section div:last-child {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+            }
+            
+            .hero-section button {
+                padding: 0.875rem 1.5rem !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .testimonials-container {
+                max-width: 100% !important;
+                padding: 0 1rem;
+            }
+            
+            .testimonial-chip {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.75rem !important;
+                padding: 1rem !important;
+            }
+            
+            .testimonial-chip > div:last-child {
+                text-align: left !important;
+            }
+            
+            .service-description {
+                display: none !important;
+            }
+        }
+        </style>
+        
+
     `;
 }
 
