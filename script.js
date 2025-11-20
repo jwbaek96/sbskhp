@@ -173,8 +173,11 @@ function updateActiveNavigation(page) {
 // 홈 페이지 렌더링
 function renderHomePage() {
     return `
-        <div class="content-card content-card-1" style="background-image: url('./assets/image/home-bg.png'); background-size: cover; background-position: center;">
-            <div class="content-card-1-1" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+        <div class="content-card content-card-1" style="position: relative; overflow: hidden; background-color: transparent; box-shadow: none; border: none;">
+            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+                <source src="./assets/image/home-bg.mp4" type="video/mp4">
+            </video>
+            <div class="content-card-1-1" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; position: relative; z-index: 1;">
                 <div style="padding: 1.5rem .5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='schedule'; loadPage('schedule');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,7 +212,7 @@ function renderHomePage() {
             <div class="hero-section" style="position: relative; border-radius: 24px; padding: 8rem 3rem; margin-bottom: 4rem; overflow: hidden;">
                 <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center;">
                     <div style="color: #9CA3AF; font-size: 1rem; font-weight: 500; margin-bottom: 1rem; letter-spacing: 0.05em;">미래 콘텐츠 산업을 이끌</div>
-                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; color: #F59E0B;">
+                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; color: #F59E0B;text-shadow: rgba(245, 158, 11, 0.3) 0px 4px 15px;">
                         인재와 기술이 만나는 곳
                     </h1>
                     
@@ -230,12 +233,7 @@ function renderHomePage() {
             </div>
 
             <!-- 교육생 후기 섹션 -->
-            <div style="margin-bottom: 3rem;">
-                <div style="text-align: center; margin-bottom: 2.5rem;">
-                    <h2 style="font-size: 1.875rem; font-weight: bold; color: #1f2937; margin-bottom: 0.5rem;">교육생 후기</h2>
-                    <p style="color: #6b7280; font-size: 1rem;">AI 교육을 통해 성장한 수강생들의 생생한 후기를 만나보세요</p>
-                </div>
-                
+            <div style="margin-bottom: 7.5rem;">                
                 <div class="testimonials-container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
                     <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.65) 100%); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
                         <div style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
@@ -303,7 +301,7 @@ function renderHomePage() {
                 </div>
             </div>
             
-            <div style="background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%); color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+            <div style="background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%); color: white; padding: 2rem; border-radius:8px; text-align: center; margin:-24px; position: relative; z-index: 1;">
                 <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">지금 시작해보세요!</h2>
                 <p style="margin-bottom: 1.5rem;">최신 교육 정보를 확인하고 원하는 과정에 신청하세요</p>
                 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
@@ -320,6 +318,7 @@ function renderHomePage() {
         <style>
         .content-card-1-1 .hover-lift:hover {
             box-shadow: none !important;
+            position: relative !important;
         }
 
         .hero-section {
