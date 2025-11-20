@@ -339,10 +339,10 @@ body {
 
 /* 문의하기 섹션 */
 .contact-section {
-    background-color: var(--white);
-    /* border: 1px solid var(--gray-200); */
     border-radius: 8px;
-    padding: 16px;
+    background-color: var(--white);
+    /* border: 1px solid var(--gray-200);
+    padding: 16px; */
 }
 
 .section-title {
@@ -674,6 +674,6 @@ body {
 }
 
 .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }

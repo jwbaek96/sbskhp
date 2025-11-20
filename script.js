@@ -89,7 +89,7 @@ function handleNavigation(event) {
 
 // 유효한 페이지인지 확인
 function isValidPage(page) {
-    const validPages = ['home', 'schedule', 'education', 'apply', 'confirm', 'faq'];
+    const validPages = ['home', 'schedule', 'education', 'apply', 'confirm', 'faq', 'contact'];
     return validPages.includes(page);
 }
 
@@ -120,6 +120,9 @@ async function loadPage(page) {
                 break;
             case 'faq':
                 content = await renderFaqPage();
+                break;
+            case 'contact':
+                content = renderContactPage();
                 break;
             default:
                 content = renderHomePage();
@@ -170,7 +173,7 @@ function updateActiveNavigation(page) {
 // 홈 페이지 렌더링
 function renderHomePage() {
     return `
-        <div class="content-card" style="background-image: url('./assets/image/home-bg.jpg'); background-size: cover; background-position: center;">
+        <div class="content-card" style="background-image: url('./assets/image/home-bg.png'); background-size: cover; background-position: center;">
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
                 <div style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='schedule'; loadPage('schedule');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
@@ -203,31 +206,23 @@ function renderHomePage() {
                 </div>
             </div>
             <!-- 히어로 섹션 -->
-            <div class="hero-section" style="position: relative; border-radius: 24px; padding: 4rem 3rem; margin-bottom: 4rem; color: white; overflow: hidden;">
-                <!-- 배경 장식 요소들 -->
-                <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; opacity: 0.6;"></div>
-                <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.08); border-radius: 50%;"></div>
-                <div style="position: absolute; top: 20%; right: 20%; width: 100px; height: 100px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
-                
+            <div class="hero-section" style="position: relative; border-radius: 24px; padding: 8rem 3rem; margin-bottom: 4rem; overflow: hidden;">
                 <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center;">
-                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
-                        미래 콘텐츠 산업을 이끌<br>
-                        <span style="background: linear-gradient(45deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">인재와 기술이 만나는 곳</span>
+                    <div style="color: #9CA3AF; font-size: 1rem; font-weight: 500; margin-bottom: 1rem; letter-spacing: 0.05em;">미래 콘텐츠 산업을 이끌</div>
+                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; color: #F59E0B;">
+                        인재와 기술이 만나는 곳
                     </h1>
                     
-                    <div style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.95; font-weight: 300; text-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                        <p style="margin-bottom: 1rem; text-shadow: 0 1px 3px rgba(0,0,0,0.13)">SBS A&T의 Hightech Platform은 콘텐츠 산업의 미래를 이끌 창의적 인재 양성과<br>
+                    <div style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 400; color: #6B7280;">
+                        <p style="margin-bottom: 1rem;">SBS A&T의 Hightech Platform은 콘텐츠 산업의 미래를 이끌 창의적 인재 양성과<br>
                         첨단 미디어 기술의 융합을 목표로 탄생한 실무 중심의 교육·실습 플랫폼입니다</p>
                         
                         <p style="margin: 0;">차세대 미디어 기술을 현업 전문가와 함께 직접 체험하고<br>
                         제작하는 현장 맞춤형 커리큘럼을 제공합니다</p>
                     </div>
                     
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <button onclick="window.location.hash='education'; loadPage('education');" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; font-weight: 600; padding: 1rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
-                            교육 프로그램 탐색
-                        </button>
-                        <button onclick="window.location.hash='apply'; loadPage('apply');" style="background: linear-gradient(45deg, #fbbf24, #f59e0b); border: none; color: white; font-weight: 600; padding: 1rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-size: 1rem; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(251, 191, 36, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(251, 191, 36, 0.4)'">
+                    <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                        <button onclick="window.location.hash='apply'; loadPage('apply');" style="background: #F59E0B; border: none; color: white; font-weight: 600; padding: 1rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-size: 1rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(245, 158, 11, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(245, 158, 11, 0.3)'">
                             지금 시작하기
                         </button>
                     </div>
@@ -242,7 +237,7 @@ function renderHomePage() {
                 </div>
                 
                 <div class="testimonials-container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border: 1px solid #e2e8f0; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(226, 232, 240, 0.8) 100%); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
                         <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <span style="color: white; font-weight: bold; font-size: 1rem;">김</span>
                         </div>
@@ -256,7 +251,7 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%); border: 1px solid #dbeafe; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.8) 0%, rgba(219, 234, 254, 0.8) 100%); border: 1px solid rgba(219, 234, 254, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
                         <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <span style="color: white; font-weight: bold; font-size: 1rem;">박</span>
                         </div>
@@ -270,7 +265,7 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #d1fae5; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(236, 253, 245, 0.8) 0%, rgba(209, 250, 229, 0.8) 100%); border: 1px solid rgba(209, 250, 229, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
                         <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <span style="color: white; font-weight: bold; font-size: 1rem;">이</span>
                         </div>
@@ -284,7 +279,7 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); border: 1px solid #fef3c7; border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1;">
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(254, 252, 232, 0.8) 0%, rgba(254, 243, 199, 0.8) 100%); border: 1px solid rgba(254, 243, 199, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
                         <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <span style="color: white; font-weight: bold; font-size: 1rem;">최</span>
                         </div>
@@ -317,20 +312,8 @@ function renderHomePage() {
         <style>
         .hero-section {
             position: relative !important;
-                border-radius: 24px !important;
+            border-radius: 24px !important;
             overflow: hidden !important;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="0.5" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.8" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            opacity: 0.3;
-            z-index: 1;
         }
         
         .testimonial-chip:hover {
@@ -348,8 +331,8 @@ function renderHomePage() {
                 font-size: 2.5rem !important;
             }
             
-            .hero-section div:last-child {
-                font-size: 1.1rem !important;
+            .hero-section div:nth-child(1) > div:nth-child(3) {
+                font-size: 1rem !important;
             }
         }
         
@@ -359,21 +342,24 @@ function renderHomePage() {
                 margin-bottom: 2.5rem !important;
             }
             
+            .hero-section div:first-child {
+                font-size: 0.9rem !important;
+            }
+            
             .hero-section h1 {
                 font-size: 2rem !important;
                 line-height: 1.3 !important;
             }
             
-            .hero-section div:nth-child(2) > div:nth-child(2) {
-                font-size: 1rem !important;
+            .hero-section div:nth-child(1) > div:nth-child(3) {
+                font-size: 0.95rem !important;
             }
             
-            .hero-section div:nth-child(2) > div:nth-child(2) p {
+            .hero-section div:nth-child(1) > div:nth-child(3) p {
                 margin-bottom: 1.5rem !important;
             }
             
             .hero-section div:last-child {
-                flex-direction: column !important;
                 gap: 0.75rem !important;
             }
             
@@ -921,6 +907,85 @@ function getStatusColor(status) {
         case '모집예정': return '#3b82f6';
         default: return '#6b7280';
     }
+}
+
+// 연락처 페이지 렌더링
+function renderContactPage() {
+    return `
+        <div class="content-card">
+            
+            <!-- 지도 섹션 -->
+            <div style="margin-bottom: 3rem;">
+                <h2 style="font-size: 1.5rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">오시는 길</h2>
+                <div style="border-radius: 12px; overflow: hidden; height: 400px; border: 1px solid #e2e8f0;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9023843214486!2d126.74436379999999!3d37.5102204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7d316991b561%3A0x7577edf74b7a0694!2z7Ju57Yiw7Jy17ZWp7IS87YSwIOuwjyDrtoDsspzsmIHsg4Eg7LKt64WE7JiY7Iig7J24IOyjvO2DnQ!5e0!3m2!1sko!2skr!4v1763616057176!5m2!1sko!2skr" 
+                            style="width: 100%; height: 100%; border: 0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- 연락처 정보 그리드 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <!-- 주소 정보 -->
+                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                            <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin: 0;">주소</h3>
+                    </div>
+                    <p style="color: #374151; line-height: 1.6; margin: 0;">(14505)경기도 부천시 원미구 길주로 17(상동 529-28), 웹툰융합센터</p>
+                </div>
+                
+                
+                <!-- 이메일 -->
+                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                            <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin: 0;">이메일</h3>
+                    </div>
+                    <p style="color: #374151; line-height: 1.6; margin: 0 0 0.5rem;">
+                        <strong>교육문의:</strong> haba98@sbs.co.kr<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+        @media (max-width: 768px) {
+            .content-card h3 {
+                font-size: 0.95rem !important;
+            }
+            
+            .content-card > div:nth-child(4) {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .content-card > div:nth-child(4) > div {
+                padding: 1.5rem !important;
+            }
+            
+            .content-card > div:nth-child(3) > div {
+                height: 300px !important;
+            }
+            
+            .content-card > div:last-child > div:last-child {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        </style>
+    `;
 }
 
 // 교육 신청 페이지 렌더링
