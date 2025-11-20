@@ -173,35 +173,35 @@ function updateActiveNavigation(page) {
 // 홈 페이지 렌더링
 function renderHomePage() {
     return `
-        <div class="content-card" style="background-image: url('./assets/image/home-bg.png'); background-size: cover; background-position: center;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
-                <div style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='schedule'; loadPage('schedule');">
+        <div class="content-card content-card-1" style="background-image: url('./assets/image/home-bg.png'); background-size: cover; background-position: center;">
+            <div class="content-card-1-1" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="padding: 1.5rem .5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='schedule'; loadPage('schedule');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육일정</h3>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">교육일정</h3>
                     <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">최신 교육 일정을 확인하세요</p>
                 </div>
                 
-                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='education'; loadPage('education');">
+                <div style="padding: 1.5rem .5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='education'; loadPage('education');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육정보</h3>
+                    <h3 style=" font-weight: 600; margin-bottom: 0.5rem;">교육정보</h3>
                     <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">전문 강사진이 제공하는 체계적인 교육 프로그램</p>
                 </div>
                 
-                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='apply'; loadPage('apply');">
+                <div style="padding: 1.5rem .5rem; border-radius: 8px; text-align: center; cursor: pointer;" class="hover-lift" onclick="window.location.hash='apply'; loadPage('apply');">
                     <div style="width: 48px; height: 48px; margin: 0 auto 1rem; background-color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">교육신청</h3>
+                    <h3 style=" font-weight: 600; margin-bottom: 0.5rem;">교육신청</h3>
                     <p class="service-description" style="color: #6b7280; font-size: 0.875rem;">온라인으로 간편하게 교육 신청 및 확인 가능</p>
                 </div>
             </div>
@@ -214,7 +214,7 @@ function renderHomePage() {
                     </h1>
                     
                     <div style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 400; color: #6B7280;">
-                        <p style="margin-bottom: 1rem;">SBS A&T의 Hightech Platform은 콘텐츠 산업의 미래를 이끌 창의적 인재 양성과<br>
+                        <p style="margin-bottom: 1rem;">SBS A&T의 Hightech Platform은 콘텐츠 산업의 미래를 이끌 창의적 인재 양성과 
                         첨단 미디어 기술의 융합을 목표로 탄생한 실무 중심의 교육·실습 플랫폼입니다</p>
                         
                         <p style="margin: 0;">차세대 미디어 기술을 현업 전문가와 함께 직접 체험하고<br>
@@ -237,9 +237,11 @@ function renderHomePage() {
                 </div>
                 
                 <div class="testimonials-container" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(226, 232, 240, 0.8) 100%); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="color: white; font-weight: bold; font-size: 1rem;">김</span>
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.65) 100%); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg style="width: 24px; height: 24px; color: #10b981;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.493 18.75c-.425 0-.82-.236-.975-.632A7.48 7.48 0 016 15.375c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75 2.25 2.25 0 012.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558-.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23h-.777zM2.331 10.977a11.969 11.969 0 00-.831 4.398 12 12 0 00.52 3.507c.26.85 1.084 1.368 1.973 1.368H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 01-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227z"/>
+                            </svg>
                         </div>
                         <div style="flex: 1;">
                             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
@@ -251,9 +253,11 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.8) 0%, rgba(219, 234, 254, 0.8) 100%); border: 1px solid rgba(219, 234, 254, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="color: white; font-weight: bold; font-size: 1rem;">박</span>
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.65) 100%); border: 1px solid rgba(219, 234, 254, 0.2); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg style="width: 24px; height: 24px; color: #fbbf24;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+                            </svg>
                         </div>
                         <div style="flex: 1;">
                             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
@@ -265,9 +269,11 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(236, 253, 245, 0.8) 0%, rgba(209, 250, 229, 0.8) 100%); border: 1px solid rgba(209, 250, 229, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="color: white; font-weight: bold; font-size: 1rem;">이</span>
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.65) 100%); border: 1px solid rgba(209, 250, 229, 0.2); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg style="width: 24px; height: 24px; color: #ec4899;" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+                            </svg>
                         </div>
                         <div style="flex: 1;">
                             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
@@ -279,9 +285,11 @@ function renderHomePage() {
                         </div>
                     </div>
                     
-                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(254, 252, 232, 0.8) 0%, rgba(254, 243, 199, 0.8) 100%); border: 1px solid rgba(254, 243, 199, 0.6); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="color: white; font-weight: bold; font-size: 1rem;">최</span>
+                    <div class="testimonial-chip" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.65) 100%); border: 1px solid rgba(254, 243, 199, 0.2); border-radius: 50px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 1; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg style="width: 24px; height: 24px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
                         </div>
                         <div style="flex: 1;">
                             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
@@ -310,6 +318,10 @@ function renderHomePage() {
         </div>
         
         <style>
+        .content-card-1-1 .hover-lift:hover {
+            box-shadow: none !important;
+        }
+
         .hero-section {
             position: relative !important;
             border-radius: 24px !important;
@@ -386,6 +398,11 @@ function renderHomePage() {
             
             .service-description {
                 display: none !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .content-card-1 h3 {
+                font-size: .9rem !important;
             }
         }
         </style>
@@ -938,7 +955,7 @@ function renderContactPage() {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin: 0;">주소</h3>
+                        <h3 style="font-weight: 600; color: #1f2937; margin: 0;">주소</h3>
                     </div>
                     <p style="color: #374151; line-height: 1.6; margin: 0;">(14505)경기도 부천시 원미구 길주로 17(상동 529-28), 웹툰융합센터</p>
                 </div>
@@ -952,7 +969,7 @@ function renderContactPage() {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin: 0;">이메일</h3>
+                        <h3 style="font-weight: 600; color: #1f2937; margin: 0;">이메일</h3>
                     </div>
                     <p style="color: #374151; line-height: 1.6; margin: 0 0 0.5rem;">
                         <strong>교육문의:</strong> haba98@sbs.co.kr<br>
@@ -962,6 +979,10 @@ function renderContactPage() {
         </div>
         
         <style>
+        .content-card h3 {
+            font-size: 1.25rem;
+        }
+        
         @media (max-width: 768px) {
             .content-card h3 {
                 font-size: 0.95rem !important;
@@ -1022,17 +1043,25 @@ function renderApplyPage() {
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
-                    <label class="form-label">교육 경험</label>
-                    <select id="apply-experience" class="form-input" style="cursor: pointer;">
-                        <option value="초급">초급 (처음 시작)</option>
-                        <option value="중급">중급 (기본 지식 보유)</option>
-                        <option value="고급">고급 (실무 경험 보유)</option>
+                    <label class="form-label">재직여부</label>
+                    <select id="apply-employment" class="form-input" style="cursor: pointer;" required>
+                        <option value="">선택해주세요</option>
+                        <option value="재직중">재직중</option>
+                        <option value="구직중">구직중</option>
+                        <option value="학생">학생</option>
+                        <option value="프리랜서">프리랜서</option>
+                        <option value="기타">기타</option>
                     </select>
                 </div>
                 
                 <div style="margin-bottom: 1.5rem;">
-                    <label class="form-label">신청 동기</label>
-                    <textarea id="apply-motivation" class="form-input" style="min-height: 120px; resize: vertical;" placeholder="교육 신청 동기나 목표를 간단히 작성해주세요."></textarea>
+                    <label class="form-label">회사명 (재직중인 경우)</label>
+                    <input type="text" id="apply-company" class="form-input" placeholder="회사명을 입력해주세요">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label class="form-label">직군/직급</label>
+                    <input type="text" id="apply-position" class="form-input" placeholder="예: 개발자/주임, 마케터/팀장, 학생 등" required>
                 </div>
                 
                 <div style="margin-bottom: 2rem;">
@@ -1040,6 +1069,12 @@ function renderApplyPage() {
                         <input type="checkbox" id="apply-agree" required style="width: 16px; height: 16px;">
                         <span style="font-size: 14px; color: #374151;">개인정보 수집 및 이용에 동의합니다. *</span>
                     </label>
+                </div>
+                
+                <div style="margin-bottom: 2rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <p style="margin: 0; font-size: 14px; color: #6b7280; line-height: 1.5;">
+                        <strong style="color: #374151;">안내사항:</strong> 일부 교육은 고용노동부 협약 사업으로 고용보험 가입여부 확인을 위해 주민등록번호를 요청할 수 있습니다.
+                    </p>
                 </div>
                 
                 <button type="submit" class="btn-primary" style="width: 100%;">
