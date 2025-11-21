@@ -770,7 +770,7 @@ function renderEducationPage() {
     
     educationData.forEach(edu => {
         content += `
-            <div class="education-card" data-status="${edu.status}" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: all 0.3s; cursor: pointer;">
+            <div class="education-card" data-status="${edu.status}" onclick="openEducationModal(1)" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: all 0.3s; cursor: pointer;">
                 <div style="position: relative; width: 100%; height: 200px; overflow: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                     <img src="${edu.image}" alt="${edu.title}" 
                          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;"
@@ -1396,4 +1396,219 @@ function handleOutsideClick(event) {
     if (mobileNav && !mobileNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
         closeMobileMenu();
     }
+}
+
+// 교육 상세 정보 더미 데이터
+const educationDetails = {
+    1: {
+        id: 1,
+        title: "AI 기초 및 머신러닝 입문",
+        category: "AI/머신러닝",
+        duration: "8주 (32시간)",
+        schedule: "주 2회 (화, 목) 19:00-21:00",
+        level: "초급",
+        instructor: "김AI 박사",
+        price: "무료 (고용노동부 지원)",
+        description: "인공지능의 기본 개념부터 머신러닝 실습까지 체계적으로 학습하는 과정입니다. 프로그래밍 경험이 없어도 참여 가능합니다.",
+        curriculum: [
+            "1-2주차: AI 개념 및 동향 이해",
+            "3-4주차: Python 기초 및 데이터 처리",
+            "5-6주차: 머신러닝 알고리즘 기초",
+            "7-8주차: 실습 프로젝트 및 포트폴리오 작성"
+        ],
+        requirements: [
+            "컴퓨터 기초 사용법",
+            "학습에 대한 열정",
+            "개인 노트북 지참 (권장)"
+        ],
+        benefits: [
+            "수료증 발급",
+            "실습용 데이터셋 제공",
+            "1:1 멘토링 3회",
+            "취업 연계 프로그램"
+        ]
+    }
+};
+
+// URL 파라미터 파싱 함수
+function getURLParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+        page: urlParams.get('page') || window.location.hash.slice(1) || 'home',
+        detail: urlParams.get('detail')
+    };
+}
+
+// URL 업데이트 함수
+function updateURL(page, detail = null) {
+    const url = new URL(window.location);
+    url.searchParams.set('page', page);
+    
+    if (detail) {
+        url.searchParams.set('detail', detail);
+    } else {
+        url.searchParams.delete('detail');
+    }
+    
+    // 해시도 동시에 업데이트
+    url.hash = page;
+    
+    window.history.pushState({ page, detail }, '', url);
+}
+
+// 교육 상세 모달 열기
+function openEducationModal(educationId) {
+    const education = educationDetails[educationId];
+    if (!education) return;
+    
+    // URL 업데이트
+    updateURL('education', educationId);
+
+    const modalHTML = `
+        <div id="education-modal" class="education-modal">
+            <div class="education-modal-backdrop" onclick="closeEducationModal()"></div>
+            <div class="education-modal-content">
+                <div class="education-modal-header">
+                    <div style="flex: 1;">
+                        <h2 style="margin: 0 0 0.5rem 0; font-size: 1.5rem; font-weight: bold; color: #1f2937;">${education.title}</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <span style="background: #dbeafe; color: #1e40af; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">${education.category}</span>
+                            <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">${education.level}</span>
+                        </div>
+                    </div>
+                    <button onclick="closeEducationModal()" style="background: none; border: none; font-size: 1.5rem; color: #6b7280; cursor: pointer; padding: 0.5rem;">×</button>
+                </div>
+                
+                <div class="education-modal-body">
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.5rem;">교육 개요</h3>
+                        <p style="color: #374151; line-height: 1.6; margin-bottom: 1rem;">${education.description}</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                            <div>
+                                <span style="font-weight: 600; color: #6b7280; font-size: 0.875rem;">기간:</span>
+                                <span style="color: #1f2937; margin-left: 0.5rem;">${education.duration}</span>
+                            </div>
+                            <div>
+                                <span style="font-weight: 600; color: #6b7280; font-size: 0.875rem;">일정:</span>
+                                <span style="color: #1f2937; margin-left: 0.5rem;">${education.schedule}</span>
+                            </div>
+                            <div>
+                                <span style="font-weight: 600; color: #6b7280; font-size: 0.875rem;">강사:</span>
+                                <span style="color: #1f2937; margin-left: 0.5rem;">${education.instructor}</span>
+                            </div>
+                            <div>
+                                <span style="font-weight: 600; color: #6b7280; font-size: 0.875rem;">수강료:</span>
+                                <span style="color: #ef4444; font-weight: 600; margin-left: 0.5rem;">${education.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">커리큘럼</h3>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            ${education.curriculum.map(item => `
+                                <li style="padding: 0.75rem; margin-bottom: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                                    ${item}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">수강 요건</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${education.requirements.map(req => `
+                                    <li style="display: flex; align-items: center; margin-bottom: 0.5rem; color: #374151;">
+                                        <svg style="width: 16px; height: 16px; color: #10b981; margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ${req}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">제공 혜택</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${education.benefits.map(benefit => `
+                                    <li style="display: flex; align-items: center; margin-bottom: 0.5rem; color: #374151;">
+                                        <svg style="width: 16px; height: 16px; color: #3b82f6; margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ${benefit}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-modal-footer">
+                    <button onclick="closeEducationModal()" style="background: #f3f4f6; color: #374151; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; cursor: pointer; margin-right: 1rem;">
+                        닫기
+                    </button>
+                    <button onclick="applyEducation(${education.id})" style="background: #3b82f6; color: white; border: none; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 500; cursor: pointer;">
+                        신청하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // 애니메이션을 위해 약간 지연 후 active 클래스 추가
+    setTimeout(() => {
+        const modal = document.getElementById('education-modal');
+        if (modal) {
+            modal.classList.add('active');
+        }
+    }, 10);
+}
+
+// 교육 상세 모달 닫기
+function closeEducationModal() {
+    const modal = document.getElementById('education-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
+        
+        // URL에서 detail 파라미터 제거
+        updateURL('education');
+    }
+}
+
+// 브라우저 뒤로가기 이벤트 처리
+window.addEventListener('popstate', function(event) {
+    const urlParams = getURLParams();
+    
+    if (urlParams.detail && document.getElementById('education-modal')) {
+        // 모달이 열려있는데 detail 파라미터가 없으면 모달 닫기
+        const modal = document.getElementById('education-modal');
+        if (modal) {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+        }
+    } else if (urlParams.detail && educationDetails[urlParams.detail] && urlParams.page === 'education') {
+        // detail 파라미터가 있고 education 페이지면 모달 열기
+        openEducationModal(parseInt(urlParams.detail));
+    }
+    
+    // 일반적인 페이지 네비게이션
+    if (urlParams.page !== getCurrentPage()) {
+        loadPage(urlParams.page);
+    }
+});
+
+// 현재 페이지 가져오기
+function getCurrentPage() {
+    const activeNav = document.querySelector('.nav-item.active, .mobile-nav-item.active');
+    return activeNav ? activeNav.getAttribute('data-page') : 'home';
 }
