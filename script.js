@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 앱 초기화
 function initializeApp() {
-    console.log('SBSKHP 교육 서비스 플랫폼 초기화');
-    
     // 초기 페이지 로드
     loadPage('home');
     
@@ -138,7 +136,6 @@ async function loadPage(page) {
         }
         
     } catch (error) {
-        console.error('페이지 로드 오류:', error);
         showErrorModal('페이지를 불러오는 중 오류가 발생했습니다.');
     } finally {
         hideLoadingSpinner();
@@ -1202,6 +1199,15 @@ function renderFaqPage() {
 // 페이지별 특수 기능 초기화
 function initializePageSpecificFeatures(page) {
     switch(page) {
+        case 'education':
+            // URL 파라미터에서 detail 확인하여 모달 열기
+            setTimeout(() => {
+                const urlParams = getURLParams();
+                if (urlParams.detail && educationDetails[urlParams.detail]) {
+                    openEducationModal(parseInt(urlParams.detail));
+                }
+            }, 200); // 페이지 렌더링 완료 후 실행
+            break;
         case 'apply':
             setupApplyForm();
             break;
