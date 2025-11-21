@@ -1410,29 +1410,19 @@ const educationDetails = {
         id: 1,
         title: "AI 기초 및 머신러닝 입문",
         category: "AI/머신러닝",
-        duration: "8주 (32시간)",
-        schedule: "주 2회 (화, 목) 19:00-21:00",
+        duration: "4일 (32시간)",
+        schedule: "2025.03.01 ~ 2025.03.04 (월~목) 09:00 ~ 18:00",
         level: "초급",
         instructor: "김AI 박사",
         price: "무료 (고용노동부 지원)",
         description: "인공지능의 기본 개념부터 머신러닝 실습까지 체계적으로 학습하는 과정입니다. 프로그래밍 경험이 없어도 참여 가능합니다.",
-        curriculum: [
-            "1-2주차: AI 개념 및 동향 이해",
-            "3-4주차: Python 기초 및 데이터 처리",
-            "5-6주차: 머신러닝 알고리즘 기초",
-            "7-8주차: 실습 프로젝트 및 포트폴리오 작성"
-        ],
-        requirements: [
-            "컴퓨터 기초 사용법",
-            "학습에 대한 열정",
-            "개인 노트북 지참 (권장)"
-        ],
-        benefits: [
-            "수료증 발급",
-            "실습용 데이터셋 제공",
-            "1:1 멘토링 3회",
-            "취업 연계 프로그램"
-        ]
+        curriculum: `1일차: AI 개념 및 동향 이해
+        2일차: Python 기초 및 데이터 처리
+        3일차: 머신러닝 알고리즘 기초
+        4일차: 실습 프로젝트 및 포트폴리오 작성`,
+        requirements: `학습에 대한 열정`,
+        benefits: `실습용 데이터셋 제공
+        1:1 멘토링`
     }
 };
 
@@ -1513,7 +1503,7 @@ function openEducationModal(educationId) {
                     <div style="margin-bottom: 2rem;">
                         <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">커리큘럼</h3>
                         <ul style="list-style: none; padding: 0; margin: 0;">
-                            ${education.curriculum.map(item => `
+                            ${education.curriculum.split('\n').map(item => `
                                 <li style="padding: 0.75rem; margin-bottom: 0.5rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid #3b82f6;">
                                     ${item}
                                 </li>
@@ -1525,7 +1515,7 @@ function openEducationModal(educationId) {
                         <div>
                             <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">수강 요건</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                ${education.requirements.map(req => `
+                                ${education.requirements.split('\n').map(req => `
                                     <li style="display: flex; align-items: center; margin-bottom: 0.5rem; color: #374151;">
                                         <svg style="width: 16px; height: 16px; color: #10b981; margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
@@ -1539,7 +1529,7 @@ function openEducationModal(educationId) {
                         <div>
                             <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">제공 혜택</h3>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                ${education.benefits.map(benefit => `
+                                ${education.benefits.split('\n').map(benefit => `
                                     <li style="display: flex; align-items: center; margin-bottom: 0.5rem; color: #374151;">
                                         <svg style="width: 16px; height: 16px; color: #3b82f6; margin-right: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
